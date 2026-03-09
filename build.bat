@@ -39,9 +39,10 @@ pyinstaller --onefile --windowed --name "QRCodeGenerator" ^
   --hidden-import=pydantic ^
   --hidden-import=qrcode ^
   --hidden-import=PIL ^
-  --hidden-import=jaraco.text ^
-  --hidden-import=jaraco.functools ^
-  --hidden-import=jaraco.context ^
+  --hidden-import=setuptools ^
+  --hidden-import=pkg_resources ^
+  --hidden-import=pkg_resources.py2_warn ^
+  --collect-all=setuptools ^
   src/qr_generator.py
 
 echo.
