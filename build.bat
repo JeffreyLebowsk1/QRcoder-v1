@@ -32,7 +32,15 @@ if exist __pycache__ rmdir /s /q __pycache__
 
 echo.
 echo [3/4] Building EXE...
-pyinstaller --onefile --windowed --name "QRCodeGenerator" src/qr_generator.py
+pyinstaller --onefile --windowed --name "QRCodeGenerator" ^
+  --hidden-import=uvicorn ^
+  --hidden-import=fastapi ^
+  --hidden-import=starlette ^
+  --hidden-import=pydantic ^
+  --hidden-import=qrcode ^
+  --hidden-import=PIL ^
+  --hidden-import=jaraco ^
+  src/qr_generator.py
 
 echo.
 if exist dist\QRCodeGenerator.exe (
