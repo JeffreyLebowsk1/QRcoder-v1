@@ -34,13 +34,30 @@ echo.
 echo [3/4] Building EXE...
 pyinstaller --onefile --windowed --name "QRCodeGenerator" ^
   --hidden-import=uvicorn ^
+  --hidden-import=uvicorn.logging ^
+  --hidden-import=uvicorn.loops ^
+  --hidden-import=uvicorn.loops.auto ^
+  --hidden-import=uvicorn.protocols ^
+  --hidden-import=uvicorn.protocols.http ^
+  --hidden-import=uvicorn.protocols.http.auto ^
+  --hidden-import=uvicorn.protocols.websockets ^
+  --hidden-import=uvicorn.protocols.websockets.auto ^
+  --hidden-import=uvicorn.lifespan ^
+  --hidden-import=uvicorn.lifespan.on ^
   --hidden-import=fastapi ^
   --hidden-import=starlette ^
+  --hidden-import=starlette.routing ^
   --hidden-import=pydantic ^
+  --hidden-import=pydantic_core ^
   --hidden-import=qrcode ^
   --hidden-import=PIL ^
-  --exclude-module=setuptools ^
-  --exclude-module=pkg_resources ^
+  --hidden-import=PIL._tkinter_finder ^
+  --collect-data=uvicorn ^
+  --copy-metadata=uvicorn ^
+  --copy-metadata=fastapi ^
+  --copy-metadata=starlette ^
+  --copy-metadata=pydantic ^
+  --noupx ^
   src/qr_generator.py
 
 echo.
