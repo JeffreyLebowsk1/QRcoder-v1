@@ -52,6 +52,8 @@ pyinstaller --onefile --windowed --name "QRCodeGenerator" ^
   --hidden-import=qrcode ^
   --hidden-import=PIL ^
   --hidden-import=PIL._tkinter_finder ^
+  --exclude-module=setuptools ^
+  --exclude-module=pkg_resources ^
   --collect-data=uvicorn ^
   --copy-metadata=uvicorn ^
   --copy-metadata=fastapi ^
