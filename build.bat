@@ -33,6 +33,13 @@ if exist __pycache__ rmdir /s /q __pycache__
 echo.
 echo [3/4] Building EXE...
 pyinstaller --onefile --windowed --name "QRCodeGenerator" ^
+  --paths=src ^
+  --hidden-import=qr_core ^
+  --hidden-import=api_server ^
+  --hidden-import=ngrok_manager ^
+  --hidden-import=launcher ^
+  --hidden-import=start_web ^
+  --hidden-import=ngrok_launcher ^
   --hidden-import=uvicorn ^
   --hidden-import=uvicorn.logging ^
   --hidden-import=uvicorn.loops ^
